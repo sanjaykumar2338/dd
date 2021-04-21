@@ -1,0 +1,20 @@
+https://github.com/kishor10d/Admin-Panel-User-Management-using-CodeIgniter
+
+
+System Administrator Account :
+
+email : admin@gmail.com
+
+password : codeinsect
+
+Manager Account :
+
+email : manager@example.com
+
+password : codeinsect
+
+Employee Account :
+
+email : employee@example.com
+
+password : codeinsect
