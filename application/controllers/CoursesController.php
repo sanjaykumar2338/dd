@@ -54,6 +54,25 @@ class CoursesController extends BaseController
         $status = $this->db->delete('top_courses');
         echo $status; die;
     }
+
+    public function max_div_id($page_id = false){
+        $this->db->select_max('div_id');
+        $this->db->where('page_id',$page_id);
+        $result = $this->db->get('top_courses')->row();  
+        
+
+        //book div
+        if($result->div_id){
+            $data = array(
+                 'page_id' => $page_id,
+                 'main_div' => 'no',
+                 'div_id' => $result->div_id + 1,
+                );
+            $this->db->insert('top_courses',$data);
+        }
+
+        echo $result->div_id; die;
+    }
     
     /**
      * This function is used to load the user list

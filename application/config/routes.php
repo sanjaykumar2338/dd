@@ -56,6 +56,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['page/save_callback'] = "coursescontroller/save_callback";
 $route['page/delete_div/(:any)/(:any)'] = "coursescontroller/delete_div/$1/$2";
 
+$route['page/max_div_id/(:any)'] = "coursescontroller/max_div_id/$1";
+
 /*********** USER DEFINED ROUTES *******************/
 $route['page/(:any)'] = "coursescontroller/page/$1";
 $route['customeruser/login-history/(:num)'] = "customeruser/loginHistoy/$1";

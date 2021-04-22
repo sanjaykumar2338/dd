@@ -21,7 +21,8 @@
   <link href="<?php echo base_url(); ?>assets/david/assets/css/material-dashboard.min.css" rel="stylesheet" />
   <link href="<?php echo base_url(); ?>assets/david/assets/css/styles.css" rel="stylesheet" />
 
- 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 
 </head>
 

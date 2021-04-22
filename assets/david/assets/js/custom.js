@@ -47,10 +47,20 @@ $(document).ready(function() {
 
 	$('body').on('click','.add_year',function(){
 		let count_div = $(".clone_div_append").find('.active').length;
-		count_div = parseInt(count_div) + 1;
+		let page_id = $('#page_id').val();
 
-		$(".clone_div").clone().appendTo(".clone_div_append").show().addClass('active').attr('data-div-id',count_div);
-		$('.active').removeClass('clone_div');
+		//count_div = parseInt(count_div) + 1;
+
+		$.get('max_div_id/'+page_id,function(div_id){
+			if(div_id){
+				div_id = parseInt(div_id) + 1;
+				$(".clone_div").clone().appendTo(".clone_div_append").show().addClass('active').attr('data-div-id',div_id);
+				$('.active').removeClass('clone_div');
+			}else{
+				$(".clone_div").clone().appendTo(".clone_div_append").show().addClass('active').attr('data-div-id',1);
+				$('.active').removeClass('clone_div');
+			}
+		});
 	});
 
 	$('body').on('click','.remove_me',function(){
@@ -69,21 +79,13 @@ $(document).ready(function() {
 		}
 	});
 
-	$(".mh3sss").droppable({
-        drop: function(event, ui) {
-            $(this).css('background', 'rgb(0,200,0)');
-            $(this).css('left', '0px');
-            $(this).css('top', '0px');
-        },
-        over: function(event, ui) {
-            $(this).css('background', 'orange');
-            $(this).css('left', '0px');
-            $(this).css('top', '0px');
-        },
-        out: function(event, ui) {
-            $(this).css('background', 'cyan');
-            $(this).css('left', '0px');
-            $(this).css('top', '0px');
-        }
-    });
+
+     $( function() {
+	    $( ".mh3" ).sortable({
+     	 placeholder: "ui-state-highlight",
+     	 stop: function() { alert('stop'); }
+    	});
+
+	    $( ".mh3" ).disableSelection();
+	  });
 });
